@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hipotenusa</title>
+</head>
+<body>
+    <script>
+        let catetoAdjacente= " ";
+        let catetoOposto= " ";
+        let r1 = " ";
+        let r2 = " ";
+        let resul = " ";
+        let c =0;
+        function hipotenusa(catetoAdjacente, catetoOposto) {
+            resul = ((catetoAdjacente * catetoAdjacente) + (catetoOposto * catetoOposto));
+            let resp = 0;
+            while(resp===0){
+                if(c*c!==resul){
+                    c++;
+                }
+                else{
+                    resp=c;
+                }
+            }
+            return resp;
+        }
+        //Casos de Teste: 
+        //let catetoOposto = 4;
+        //let catetoAdjacente = 3;
+        //let hipo = hipotenusa(catetoAdjacente, catetoOposto);
+        //console.log(hipo); // imprime 5 //  
+        //console.log(hipo === 5, 'hipotenusa(4, 3) === 5');
+        //console.log(hipotenusa(7, 24) === 25, 'hipotenusa(7, 24) === 25');
+        //console.log(hipotenusa(12, 19) === 22.47220505424423, 'hipotenusa(12, 19) === 22.47220505424423');
+        //console.log(hipotenusa(1366, 768) === 1567.0928498337296, 'hipotenusa(1366, 768) === 1567.0928498337296');
+        //console.log(hipotenusa(90, 120) === 150, 'hipotenusa(90,120) === 150');
+        //console.log(hipotenusa(6, 8) === 10, 'hipotenusa(6,8) === 10');
+    </script>
+</body>
+</html>
+
+
