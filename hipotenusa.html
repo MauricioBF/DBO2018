@@ -13,19 +13,22 @@
         let r1 = " ";
         let r2 = " ";
         let resul = " ";
-        let c =0;
+        let c = 0;
         function hipotenusa(catetoAdjacente, catetoOposto) {
             resul = ((catetoAdjacente * catetoAdjacente) + (catetoOposto * catetoOposto));
-            let resp = 0;
-            while(resp===0){
-                if(c*c!==resul){
-                    c++;
+            result = raiz(resul);
+            function raiz(r1, r2) {
+                if (!r2) {
+                    r2 = r1 / 2.0;
                 }
-                else{
-                    resp=c;
+                var exem = r1 / r2;
+                var algo = (exem + r2) / 2.0;
+                if (r2 == algo) {
+                    return r2;
                 }
+                return raiz(r1, algo);
             }
-            return resp;
+            return result;
         }
         //Casos de Teste: 
         //let catetoOposto = 4;
@@ -38,6 +41,8 @@
         //console.log(hipotenusa(1366, 768) === 1567.0928498337296, 'hipotenusa(1366, 768) === 1567.0928498337296');
         //console.log(hipotenusa(90, 120) === 150, 'hipotenusa(90,120) === 150');
         //console.log(hipotenusa(6, 8) === 10, 'hipotenusa(6,8) === 10');
+        //console.log(hipotenusa(2, 3) === 3.605551275, 'hipotenusa(2,3 === 3.605551275');
+        //console.log(hipotenusa(5, 12) === 13, 'hipotenusa(5,12) === 13');
     </script>
 </body>
 </html>
