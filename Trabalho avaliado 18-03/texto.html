@@ -37,7 +37,7 @@
             let i = texto.length - 1;
             let resul = "";
             while (i >= 0){
-                resul += texto.charAt(i);
+                resul += texto[i];
                 i--;
                 //console.log(resul);
             }
@@ -60,8 +60,8 @@
             let resp = "";
             let letra = "";
             while (c <= texto.length-1){
-                if ((texto.charAt(c)) !== retira){
-                    letra = texto.charAt(c);
+                if ((texto[c]) !== retira){
+                    letra = texto[c];
                     resp += letra;
                 }
                 c++;
@@ -80,7 +80,7 @@
         console.log(strip('analise e desenvolvimento de sistemas', 'e') === 'analis  dsnvolvimnto d sistmas', "strip('analise e desenvolvimento de sistemas', 'e') === 'analis  dsnvolvimnto d sistmas'");
         // Adicione mais 2 Casos de Teste para strip
         console.log(strip('O rato roeu a roupa do rei de roma', 'r') === 'O ato oeu a oupa do ei de oma', "strip('O rato roeu a roupa do rei de roma', 'r') === 'O ato oeu a oupa do ei de oma'");
-        console.log(strip('abacate e abacaxi', 'a') === 'bcte e bcxi', "strip('abacaye e abacaxi', 'a') === 'bcte e bcxi'");
+        console.log(strip('abacate e abacaxi', 'a') === 'bcte e bcxi', "strip('abacate e abacaxi', 'a') === 'bcte e bcxi'");
     </script>
 </body>
 </html>
