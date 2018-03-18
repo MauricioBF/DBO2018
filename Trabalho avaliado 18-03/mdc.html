@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MDC</title>
+</head>
+<body>
+    <script>
+        function mdc(a, b) {
+            let divisor = 2;
+            let resul = 1;
+            while (divisor <= a && divisor <= b) {
+                if ((a % divisor === 0) && (b % divisor === 0)) {
+                    resul *= divisor;
+                    a = a/divisor;
+                    b = b/divisor;
+                    divisor = 2;
+                }
+                else {
+                    divisor++;
+                }
+            }
+            return resul;            
+        }
+        // resultado observável:
+        console.log(mdc(12, 18)); // 6
+        // Casos de Teste:
+        console.log(mdc(12, 18) === 6, "mdc(12, 18) === 6");
+        console.log(mdc(82, 90) === 2, "mdc(82, 90) === 2");
+        console.log(mdc(36, 90) === 18,"mdc(36, 90) === 18");
+        console.log(mdc(821, 90) === 1, "mdc(821, 90) === 1");
+        // Teste de performance (opcional):
+        console.log(mdc(235556224, 66522360) === 8, "mdc(235556224, 66522360) === 8");
+        // Adicione mais 2 Casos de Teste para mdc
+        console.log(mdc(288, 360) === 72, "mdc(288, 360) === 72");
+        console.log(mdc(12, 120) === 12, "mdc(12, 120) === 12");
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Texto</title>
+</head>
+<body>
+    <script>
+        console.log("----------------------Palíndromo-------------------------");
+        function palindrome(texto) {
+            texto = strip(texto, " ");
+            let aux = texto;
+            aux = reverse(aux);
+            aux = strip(aux, " ");
+            if(aux === texto){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        // PALINDROME
+        let t2 = 'pato';
+        let r2 = palindrome(t2);
+        console.log(r2); // false
+        // Casos de Teste:
+        console.log(r2 === false);
+        console.log(palindrome('arara') === true, "palindrome('arara') === true");
+        console.log(palindrome('a cara rajada da jararaca') === true, "palindrome('a cara rajada da jararaca') === true");
+        // Adicione mais 2 Casos de Teste para palindrome
+        console.log(palindrome('como') === false, "palindrome('como') === false");
+        console.log(palindrome('subi no onibus') === true, "palindrome('subi no onibus') === true");
+        console.log("----------------------Reverse---------------------------");
+        function reverse(texto) {
+            let i = texto.length - 1;
+            let resul = "";
+            while (i >= 0){
+                resul += texto.charAt(i);
+                i--;
+                //console.log(resul);
+            }
+            return resul;
+        }
+        // REVERSE
+        let t1 = 'teste';
+        let r1 = reverse(t1);
+        console.log(r1); // etset
+        // Casos de Teste:
+        console.log(r1 === 'etset');
+        console.log(reverse('internet das coisas') === 'sasioc sad tenretni', "reverse('internet das coisas') === 'sasioc sad tenretni'");
+        console.log(reverse('objeto') === 'otejbo', "reverse('objeto') === 'otejbo'");
+        // Adicione mais 2 Casos de Teste para reverse
+        console.log(reverse('consciencia') === 'aicneicsnoc', "reverse('consciencia') === 'aicneicsnoc'");
+        console.log(reverse('anima soul é legal') === 'lagel é luos amina', "reverse('anima soul é legal') === 'lagel é luos amina'");
+        console.log("-----------------------Strip------------------------");
+        function strip(texto, retira) {
+            let c = 0;
+            let resp = "";
+            let letra = "";
+            while (c <= texto.length-1){
+                if ((texto.charAt(c)) !== retira){
+                    letra = texto.charAt(c);
+                    resp += letra;
+                }
+                c++;
+                //console.log(resp);
+            }
+            return resp;
+        }
+        //STRIP
+        let t3 = 'info: poo';
+        let r3 = strip(t3, ':');
+        console.log(r3); // info poo
+        // Casos de Teste:
+        console.log(r3 === 'info poo', "r3 === 'info poo'");
+        console.log(strip('.teste....de.strip..', '.') === 'testedestrip', "strip('.teste....de.strip..', '.') === 'testedestrip'");
+        console.log(strip('arara', 'a') === 'rr', "strip('arara', 'a') === 'rr'");
+        console.log(strip('analise e desenvolvimento de sistemas', 'e') === 'analis  dsnvolvimnto d sistmas', "strip('analise e desenvolvimento de sistemas', 'e') === 'analis  dsnvolvimnto d sistmas'");
+        // Adicione mais 2 Casos de Teste para strip
+        console.log(strip('O rato roeu a roupa do rei de roma', 'r') === 'O ato oeu a oupa do ei de oma', "strip('O rato roeu a roupa do rei de roma', 'r') === 'O ato oeu a oupa do ei de oma'");
+        console.log(strip('abacate e abacaxi', 'a') === 'bcte e bcxi', "strip('abacaye e abacaxi', 'a') === 'bcte e bcxi'");
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Morse</title>
+</head>
+<body>
+    <script>
+        let texto = 'teste morse';
+        let alfamorse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
+        let alfaminus = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        let alfamaius = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        function morse(te){
+            let resultado = "";
+            let i = 0;
+			let i2 = 0;
+            let c = te.length - 1;
+			let c2 = te.length - 1;
+			let l = 0;
+			while (c2 >= 0){
+				if ((te.charCodeAt(i2)<91)&&(te.charCodeAt(i2)>64)){
+                    l++;
+                }
+                if ((te.charCodeAt(i2)<123)&&(te.charCodeAt(i2)>96)){
+                    l++;
+                }
+				c2--;
+				i2++;
+			}
+			l -= 1;
+            while (c >= 0){
+                if ((te.charCodeAt(i)<91)&&(te.charCodeAt(i)>64)){
+                    conta = alfamorse[te.charCodeAt(i)-65];
+                    resultado+=conta;
+                    if((c !== 0)&&(l>0)){
+                        resultado+=" ";
+						l--;
+                    }
+                }
+                if ((te.charCodeAt(i)<123)&&(te.charCodeAt(i)>96)){
+                    conta = alfamorse[te.charCodeAt(i)-97];
+                    resultado+=conta;
+                    if((c !== 0)&&(l>0)){
+                        resultado+=" ";
+						l--;
+                    }
+                }
+                if (te.charCodeAt(i) === 32){
+                    resultado+="/ ";
+                }
+                else{
+                    resultado+="";
+                }
+                c--;
+                i++;
+            }
+            return resultado;
+        }
+		//Casos de Teste
+		let codigo = morse(texto);
+		console.log(codigo); // - . ... - . / -- --- .-. ... .
+		// Casos de Teste:
+		console.log(codigo === '- . ... - . / -- --- .-. ... .', "codigo === '- . ... - . / -- --- .-. ... .'");
+		// tratar quando maiúsculas
+		console.log(morse('TESTE MORSE') === '- . ... - . / -- --- .-. ... .', "morse('TESTE MORSE') === '- . ... - . / -- --- .-. ... .'");
+		// ignorar não a-z, A-Z e espaço
+		console.log(morse('2333TESTE 0MORSE__?') === '- . ... - . / -- --- .-. ... .', "morse('2333TESTE 0MORSE__?') === '- . ... - . / -- --- .-. ... .'");
+		console.log(morse('tEsTe morSE') === '- . ... - . / -- --- .-. ... .', "morse('tEsTe morSE') === '- . ... - . / -- --- .-. ... .'");
+		console.log(morse('infomorse') === '.. -. ..-. --- -- --- .-. ... .', "morse('infomorse') === '.. -. ..-. --- -- --- .-. ... .'");
+		// Adicione mais 2 Casos de Teste:
+
+    </script>
+</body>
+</html>
